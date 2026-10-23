@@ -5,6 +5,7 @@
 @media(min-width:600px){body{padding:28px;background:radial-gradient(ellipse at 20% 10%,#344d5e,transparent 65%),#101b25}#phone{width:390px;height:min(844px,calc(100dvh - 56px));min-height:560px;border-radius:48px;border:8px solid #14212c;box-shadow:0 35px 100px #0007,0 0 0 1px #ffffff20}.status{padding-top:16px;height:55px}.island{top:11px}#app{height:calc(100% - 55px)}}@media(max-height:700px){.clock{font-size:70px}.lock-note{margin-top:20px}.widgets{margin-bottom:18px}.widget{min-height:112px;padding:13px}.widget strong{font-size:29px}.apps{gap:16px 8px}.home-quote{margin:22px 0}.cover{margin:8px auto;max-width:235px}.pin{gap:8px;margin:15px auto}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style></head><body>
 <main id="phone" aria-label="再次重逢的初恋互动手机"><div id="wallpaper"></div><div class="status"><span id="statusTime">09:41</span><span class="island"></span><span class="signals">▂▄▆ ◔ <i class="battery"></i></span></div><div id="app"></div><button id="homebar" class="homebar" aria-label="返回桌面"></button><div id="toast" class="toast" role="status" hidden></div></main>
+<style>svg{width:24px;height:24px;vertical-align:middle}</style>
 <script>
 'use strict';
 const PHOTO='https://image.weversejapan.com/official/live/tws/contents/profile/8/ec47dcf7631a4309985c582b03c6c635.jpg';
@@ -89,7 +90,7 @@ if($('postForm'))$('postForm').onsubmit=e=>{e.preventDefault();const v=$('postIn
 function action(a){switch(a){case'openChat':openChat();break;case'friendChat':activeContact='林知夏';goto('chat');break;case'nextChapter':nextChapter();break;case'startCall':startCall();break;case'answer':answer();break;case'advanceCall':advanceCall();break;case'mute':micMuted=!micMuted;render();toast(micMuted?'模拟麦克风已静音':'模拟麦克风已取消静音');break;case'camera':cameraOn=!cameraOn;render();toast('仅切换本地模拟画面，不调用摄像头。');break;case'decline':endCall(true);goto('instagram');break;case'hangup':endCall(false);goto('instagram');break;case'restart':goto('restart');break;case'confirmRestart':stopSound();try{localStorage.removeItem(KEY)}catch{}location.reload();break}}
 function clock(){return new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false})}
 $('homebar').onclick=()=>{if(view==='lock'){pin='';goto('pin')}else goto('home')};
-setInterval(()=>{$('statusTime').textContent=clock();if($('lockClock'))$('lockClock').textContent=clock()},1000);
+setInterval(()=>{const t=clock();if($('statusTime').textContent!==t)$('statusTime').textContent=t;if($('lockClock')&&$('lockClock').textContent!==t)$('lockClock').textContent=t},1000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){stopSound();if(view==='music')render()}});
 document.addEventListener('keydown',e=>{if(view==='pin'&&/^\d$/.test(e.key)){const b=document.querySelector(`[data-pin="${e.key}"]`);if(b)b.click()}if(e.key==='Escape'&&view!=='onboard')goto(view==='pin'?'lock':'home')});
 window.addEventListener('pagehide',()=>{stopSound();if(callState!=='idle')endCall(false)});
