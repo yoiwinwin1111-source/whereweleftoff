@@ -1,25 +1,27 @@
-# 再次重逢的初恋 · Where we left off
+# 再次重逢的初恋 · Where We Left Off
 
-Static interactive fiction. Root `index.html` and user-supplied `assets/dohoon.jpg`; deploy to Vercel as Other/static, with no build command, dependencies or API keys.
+纵向 iPhone 互动小说。完整网页位于仓库根目录 `index.html`，头像为 `assets/dohoon.jpg`。Vercel 从 main 自动部署，无构建依赖。
 
-## Story
-Eight stages span about six fictional weeks: reunion, apology, program broadcast, old keychain, fulfilled promises and a serious call, confession/time to consider/mutual reconciliation, new bracelet, and jointly handling speculation. Dates advance through player actions. Messages arrive individually; important responses are gated until replies finish.
+## 故事与存档
 
-Mom keeps the school-era gift. oo is a college friend who learns about the former relationship only when told. Both have optional multi-turn topics and free text. Mom's shipment and the serious call gate their corresponding scenes.
+八阶段慢热重逢；妈妈、大学朋友 oo 和道勋按共同时间线推进。旧卡片在复合前出现，咖啡厅以当面场景呈现，尾声由密友快拍、私信、KKT 视频模拟和第二天消息衔接。旧存档保留原位置，已通关存档可以继续尾声；旧卡片通过补充场景衔接。
 
-## Social play
-- X starts private; Instagram starts public. Local profiles, photo/text posts, per-post audiences, likes, comments/replies, hiding and deletion are supported.
-- 40 fictional world posts: 10 program, 10 later distracted/on-phone behavior, 12 matching-item speculation and 8 everyday posts. Threads contain 6–12 readable comments plus expandable replies.
-- Discovery requires confirmed reconciliation, later fictional public footage and a still-public bracelet-visible photo. Self-only, friends-only, cropped photos and X private accounts cannot trigger it. Free text alone is never treated as evidence.
-- The eligible Instagram photo receives a 25-comment simulated thread in a bottom drawer. Hiding/deleting stops further comparison posts but retains discussion already released.
-- Two supplied TWS-related Instagram originals remain embedded with tracking parameters removed. Original text/media are loaded by Instagram and may be unavailable due to network/login/embed settings.
+用户首次设置自己的名字，设置中可改名。密码 0000。姓名、聊天、帖子、图片、资料、关注、快拍和通知只保存于本浏览器 localStorage；无真实社交平台登录或发布。清理存储会丢失进度。
 
-## Privacy and media
-State stays in localStorage under `whereweleftoff.refined.1`. Refined story starts from reunion; the old `whereweleftoff.v2` key is not deleted. Name and previous local Instagram photos migrate, with migrated photos restricted to self-only. Photos are resized locally and never uploaded to GitHub, Vercel or real social networks.
+## 社交互动
 
-Unlock code: `0000`, without an onscreen hint. Settings can change the player name. Romance, programs, props, conversations, calls and simulated social content are fictional; no association with artists/agencies. Calls use a portrait/text simulation without live connections or camera/microphone capture. Story prop illustrations are SVG.
+- Instagram：首页、探索、通知、私信、个人主页，粉丝/关注列表，编辑资料/头像，多图本地发帖（最多四张）、收藏、归档和范围管理。快拍可设密友、粉丝或仅自己，单独选择 oo 与道勋。道勋虚构小号需要 KKT 确认、接受申请并回关，才进入密友互动。
+- X：推荐/关注时间线、搜索、阶段趋势、通知、私信、个人主页、关注申请、讨论串、回复/点赞/收藏与引用发帖。显示名与英文数字 @用户名分开。故事讨论分阶段出现，公开手链帖及公开剧情物料同时存在时才有同款猜测。
+- 通知按短延迟分批出现，可点击直达具体内容，通知页保留。隐私快拍不会触发公众舆论；删除快拍取消未到达的回复。隐藏公开帖子停止更多对比，但不抹除已出现的讨论。
+- KKT 回复逐条追加，保持外框和草稿稳定。视频通话均在 KKT，支持接听/拒接/挂断、剧情回应和记录。
+- Spotify：七首官方 Apple Music 试听与外部完整歌曲链接，包括经典 K-pop 和 TWS。试听受第三方可用性限制。
 
-Seven Apple Music preview tracks include older K-pop and TWS's plot twist, hey! hey!, Last Festival. Previews normally last about 30 seconds; complete songs use official external links. No full recordings are hosted.
+## 素材与边界
 
-## Verification
-Both response branches across all eight stages and audience/discovery gates pass bounded local checks. In-app browser QA covers unlock/name entry, live replies, mother/shipping topic, publishing, comment submission/expansion/likes, audience changes, music controls and 320/390px plus desktop portrait sizing. Safari hardware, the real image picker and external Instagram rendering are not fully verified.
+本作为虚构粉丝故事，与艺人及公司无关联。节目、私生活、恋情、账号和模拟讨论均为创作。通话是用户提供照片与文字的交互模拟，不是真人视频/声音，无麦克风或摄像头采集。日常插画不是真实艺人的私生活照片。
+
+两个所选 TWS 相关 Instagram 公开原帖通过原始嵌入显示作者与内容，参数已清理；不把公开素材写成恋情证据。原帖可能受 Instagram 登录/限流/嵌入设置影响。
+
+## 验证
+
+本地分支检查覆盖两条八阶段流程、三人进度门槛、旧存档补充、卡片/当面场景、互关确认、密友范围、删除后的延迟任务、KKT 尾声与第二天消息、X 讨论串/引用/书签。浏览器实测粉丝列表、快拍发布/回复通知/私信跳转、X 发回复与引用；390×844 和 320×568 布局无横向溢出。未进行实体 iPhone Safari、相册文件选择或第三方服务可用性的完整验证。
