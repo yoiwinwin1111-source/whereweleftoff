@@ -362,7 +362,7 @@ const igPriorAct=act;act=function(a,d={}){if(a==='igSharePost'){toast('这条帖
 const igPriorHTML=instagramHTML;instagramHTML=function(){let h=igPriorHTML();if(socialTab==='profile')h=h.replace(socialHeader('Instagram'),'');return h.replace('class="social-content"','class="social-content ig-tab-'+socialTab+'"')};render();
 
 // Reference-based lock screen, Instagram theme and isolated side-flow.
-if(!POST_LINKS.includes('https://www.instagram.com/p/De33mYbEgkJ/'))POST_LINKS.push('https://www.instagram.com/p/De33mYbEgkJ/');
+const pinnedTwsPost='https://www.instagram.com/p/De33mYbEgkJ/';const pinnedTwsIndex=POST_LINKS.indexOf(pinnedTwsPost);if(pinnedTwsIndex>=0)POST_LINKS.splice(pinnedTwsIndex,1);POST_LINKS.unshift(pinnedTwsPost);
 const referenceQ=()=>initSocial();let referenceLockGroup='',referencePendingUnlock=null,referenceLamp=false,referenceVerifyStep=0;
 function referenceInit(){const q=referenceQ();if(!q.lockRead)q.lockRead={dohoon:S.log.length,mom:S.side.mom.length,oo:S.side.oo.length};if(q.accepted&&q.following.includes('dohoon'))q.privateVerified=true;if(!Number.isInteger(q.cafePart))q.cafePart=0;if(!Array.isArray(q.eveningChat))q.eveningChat=[];return q}
 referenceInit();
